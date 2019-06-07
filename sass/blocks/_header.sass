@@ -1,0 +1,176 @@
+.header
+  height: 75px
+  box-shadow: 0px 3px 10px rgba(0, 73, 129, 0.1)
+  background-color: white
+  position: fixed !important
+  top: 0 !important
+  overflow: hidden
+  width: 100%
+  z-index: 999999
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 100%
+    .logo
+      display: flex
+      align-items: center
+      justify-content: space-between
+      &__image
+        height: 50px
+        img
+          width: 50px
+          height: 50px
+          border-radius: 50%
+      .text
+        display: flex
+        justify-content: space-between
+        flex-direction: column
+        margin-left: 15px
+        &__title
+          font-size: 16px
+          line-height: 19px
+          margin-bottom: 3px
+        &__id
+          font-size: 14px
+          line-height: 17px
+          color: $secondary-text !important
+    .nav
+      display: flex
+      align-items: center
+      justify-content: space-between
+      &__link
+        margin-left: 20px
+        color: $secondary-text
+        transition: 0.3s
+        position: relative
+        &--current
+          color: $primary-text
+          &::after
+            width: 100%
+            height: 2px
+            position: absolute
+            content: ''
+            bottom: -28px
+            left: 0
+            display: block
+            background-color: $primary-text
+        &:hover
+          color: $primary-text
+      &__order
+        text-decoration: none
+        color: white
+        background-color: $after-color-1
+        display: block
+        width: 18px
+        height: 18px
+        border-radius: 50%
+        text-align: center
+        padding-top: 3px
+        font-size: 12px
+        margin-left: 5px
+    .mobile-menu
+      display: none
+    .mobile-nav
+      display: none
+
+@media (max-width: 950px)
+  .header
+    .container
+      .nav
+        &__link
+          font-size: 90%
+          &::after
+            bottom: -29px
+
+@media (max-width: 890px)
+  .header
+    .container
+      .nav
+        &__link
+          &::after
+            bottom: -30px
+      .logo
+        .text
+          &__title
+            font-size: 90%
+          &__id
+            font-size: 80%
+      .nav
+        &__link
+          font-size: 80%
+
+@media (max-width: 810px)
+  .header
+    .container
+      .logo
+        .text
+          &__title
+            font-size: 90%
+          &__id
+            font-size: 80%
+      .nav
+        &__link
+          font-size: 80%
+          margin-left: 10px
+
+//Mobile
+@media (max-width: 768px)
+  .header
+    .container
+      .logo
+        .text
+          &__title
+            font-size: 14px
+          &__id
+            font-size: 12px
+      .nav
+        display: none
+      .mobile-menu
+        display: block
+        width: 36px
+        height: 36px
+        border: 1px solid $after-color-2
+        border-radius: 3px
+        position: relative
+        span
+          border-bottom: 2px solid $secondary-text
+          display: block
+          width: 24px
+          margin: 7px auto
+      .mobile-nav
+        display: flex
+        justify-content: space-between
+        width: 100%
+        padding: 10px 20px
+        left: 0
+        position: fixed
+        top: 75px
+        background-color: #fff
+        border-top: 1px solid $after-color-2
+        box-shadow: 0px 5px 7px rgba(0, 73, 129, 0.1)
+        &__anchor
+          color: $secondary-text
+          font-size: 14px
+          &--current
+            position: relative
+            color: $primary-text
+            &::after
+              content: ''
+              width: 100%
+              height: 2px
+              background-color: $primary-text
+              display: block
+              position: absolute
+              bottom: -10px
+
+@media (max-width: 338px)
+  .logo
+    .text
+      &__title
+        font-size: 12px !important
+      &__id
+        font-size: 10px !important
+  .mobile-nav
+    &__anchor
+      font-size: 12px !important
