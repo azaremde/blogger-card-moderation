@@ -1609,7 +1609,7 @@ strong {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 41px;
+  padding: 41px 0 !important;
 }
 
 .moderation .rectangle-block.empty span {

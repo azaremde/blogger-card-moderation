@@ -48,10 +48,17 @@ ModeSwitching = () => {
 
 ReviewsOpening = () => {
     let reviewControlBtns = $('.review-control');
+    let mobileControlBtns = $('.review .closing');
 
     $.map(reviewControlBtns, (el) => {
         $(el).on('click', () => {
             $(el).closest('.review').toggleClass('review--minimized');
+        });
+    });
+
+    $.map(mobileControlBtns, (el) => {
+        $(el).on('click', () => {
+            $(el).parent().parent().addClass('review--minimized');
         });
     });
 }
@@ -193,6 +200,19 @@ OptionsControl = () => {
     });
 }
 
+OtherControls = () => {
+    let commerceBtns = $('.form--commerce .content-row');
+
+    $.map(commerceBtns, (el) => {
+        $.map($(el).find('.button'), (_el) => {
+            $(_el).on('click', () => {
+                $(el).find('.button').removeClass('button--active');
+                $(_el).addClass('button--active');
+            });
+        });
+    });
+}
+
 $(document).ready(() => {
     HeaderLoad();
     ModeSwitching();
@@ -202,4 +222,5 @@ $(document).ready(() => {
     SlickSlider();
     OptionsControl();
     DropdownControl();
+    OtherControls();
 });
