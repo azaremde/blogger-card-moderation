@@ -92,7 +92,7 @@ input[type=range]
         border-radius: 50%
         cursor: pointer
         box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.15)
-        z-index: 999
+        z-index: 1
         position: relative
 
 textarea
@@ -118,26 +118,27 @@ select
     font-size: 12px
     line-height: 14px
 
-.link
+.link, a
     text-decoration: none
     color: $indicator-color
+    cursor: pointer
     &:hover
         color: $indicator-color--hovered
 
 .blogger:not(.blogger--loading)
-    .link
+    .link, a
         transition: 0.3s
 
 .fa-star
     color: #FBC400
 
 .button
-    height: 36px
+    height: 32px
     font-size: 14px
     border-radius: 5px
     background-color: $button-color
     border: none
-    padding: 10px
+    padding: 8px
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15)
     outline: none
     cursor: pointer
@@ -172,7 +173,7 @@ select
         color: $primary-text
 
 .input, .select
-    height: 36px
+    height: 32px
     border-radius: 5px
     border: 1px solid $after-color-2
     transition: 0.3s
@@ -216,6 +217,50 @@ select
     h1, h2, h3, h4, h5, h6
         font-size: 24px
 
+
+        
+.slick-prev, .slick-next
+    width: 40px !important
+    height: 40px !important
+    background-color: #fff !important
+    border-radius: 50%
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1) !important
+    cursor: pointer
+    transition: 0.3s
+    &::after
+        content: ''
+        position: absolute
+        width: 6px
+        height: 6px
+        border-right: 2px solid $after-color-1
+        border-bottom: 2px solid $after-color-1
+        left: calc(50% - 4px)
+        top: calc(50% - 4px)
+        transition: 0.3s
+
+
+.slick-prev
+    left: -65px !important
+    &::after
+        transform: rotateZ(135deg)
+
+.slick-next
+    right: -65px !important
+    &::after
+        transform: rotateZ(-45deg)
+
+.slick-prev, .slick-next
+    &:hover
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15) !important
+        &::after
+            border-right: 2px solid $primary-text
+            border-bottom: 2px solid $primary-text
+
+.custom-text-area
+    height: 282px
+    outline: none
+    font-size: 14px
+
 .dropdown
     width: 100%
     cursor: pointer
@@ -236,11 +281,13 @@ select
         &::after
             content: ', '            
     .dropdown__body
-        padding: 9px 10px
+        padding: 8px 10px
         padding-right: 25px
         transition: 0.3s
         font-size: 14px
-        overflow: hidden
+        overflow: hidden !important
+        text-overflow: ellipsis
+        white-space: nowrap
         .dropdown__text
             white-space: nowrap
             width: 100%
@@ -271,7 +318,7 @@ select
         .list
             display: none
     .list
-        padding: 0 10px 10px 10px
+        padding: 4px
         position: absolute
         overflow-y: auto
         background-color: #fff
@@ -279,6 +326,7 @@ select
         left: -1px
         border: 1px solid $primary-text
         z-index: 999
+        .option
 
 .custom-search-field
     display: flex
@@ -293,6 +341,7 @@ select
         width: calc(100% - 36px)
         padding-left: 10px
         outline: none
+        height: 100%
         color: $primary-text
         &::placeholder
             font-size: 14px
@@ -304,7 +353,7 @@ select
         box-shadow: none
         position: relative
         border: 1px solid $after-color-2
-        background-color: transparent
+        background-color: white
         color: $primary-text
         i
             position: absolute
@@ -418,12 +467,12 @@ select
             height: 13px
             position: absolute
             background-color: transparent
-            border: 1px solid $secondary-text
+            border: 1px solid $after-color-1
             border-radius: 3px
             transition: 0.3s
     &__title
         font-size: 14px
-        margin-left: 15px
+        margin-left: 7px
         line-height: 17px
 
 .currently-hidden
@@ -431,6 +480,58 @@ select
 
 .tag.currently-hidden
     display: none !important
+    
+.pages
+    margin-bottom: 121px
+    &__prev, &__next
+        border-radius: 5px
+        padding: 0 25px
+        color: $after-color-1
+        border: 1px solid #E4EFF4
+    &:hover
+        color: $secondary-text
+        border-color: $after-color-2
+    .buttons
+        margin: 0 10px
+        display: flex
+        height: 36px
+        overflow: hidden
+        &__page
+            border: 1px solid #E4EFF4
+            border-right: none
+            width: 36px
+            height: 36px
+            text-align: center
+            position: relative
+            .buttons-text
+                color: $secondary-text
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+            &--current
+                background-color: #3897F0
+                border: 1px solid #3897F0
+                .buttons-text
+                    color: white
+            &:first-child
+                border-top-left-radius: 5px
+                border-bottom-left-radius: 5px
+            &:last-child
+                border-right: 1px solid #E4EFF4
+                border-top-right-radius: 5px
+                border-bottom-right-radius: 5px
+    button
+        height: 36px
+        background-color: #fff
+        outline: none
+        transition: 0.3s
+        cursor: pointer
+        box-shadow: none
+    .pages-wrapper
+        display: flex
+        justify-content: space-between
+        margin: auto
 
 strong
     +regular
@@ -446,6 +547,8 @@ strong
         padding: 15px
 
 @media (min-width: 768px)
+    .pages-wrapper
+        width: 380px
     .only-mobile
         display: none !important
     .only-desktop
@@ -458,7 +561,35 @@ strong
         &--table-cell
             display: table-cell
 
-@media (max-width: 768px)
+@media (max-width: 768px)    
+    .pages-wrapper
+        width: 100%    
+
+    .slick-arrow
+        display: none !important
+
+    .pages
+        .pages-wrapper
+            padding-left: 46px
+            padding-right: 46px
+            .pages__prev.only-mobile, .pages__next.only-mobile
+                width: 36px
+                height: 36px
+                padding: 0
+                &::before
+                    content: ''
+                    width: 8px
+                    height: 8px
+                    display: block
+                    border-bottom: 1px solid $after-color-1
+                    border-right: 1px solid $after-color-1
+            .pages__prev.only-mobile
+                &::before
+                    transform: translateX(160%) rotateZ(135deg)
+            .pages__next.only-mobile
+                &::before
+                    transform: translateX(130%) rotateZ(-45deg)
+
     .loader
         display: none // disable loader on mobile devices
     .main

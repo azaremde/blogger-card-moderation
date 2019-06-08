@@ -1,0 +1,331 @@
+.section:not(.moderation--empty)
+    .empty
+        display: none
+
+.section
+    &:not(.moderation--mode-0)
+        #fresh
+            display: none
+    &:not(.moderation--mode-1)
+        #approved
+            display: none
+    &:not(.moderation--mode-2)
+        #refused
+            display: none
+    &:not(.moderation--mode-3)
+        #banned
+            display: none
+
+    &.moderation
+        &--empty
+            .pages
+                display: none
+            .empty
+                display: flex
+            .form
+                display: none
+    
+.moderation
+    .darkness-wrapper
+        position: fixed
+        width: 100vw
+        height: 100vh
+        top: 0
+        left: 0
+        z-index: 999999
+        background-color: rgba(0, 0, 0, 0.2)
+        display: none
+    .slider-wrapper
+        position: absolute
+        top: 15%
+        left: 50%
+        padding: 30px 80px 52px
+        z-index: 1
+        transform: translateX(-50%)
+        .slider
+            width: 300px
+            .slide
+                &__image
+                    width: 100%
+                &__title
+                    text-align: center
+                    margin-top: 10px
+
+    .button-select
+        margin-left: 15px
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15)
+        border-radius: 5px
+        &--refuse
+            max-width: 117px
+        &--ban
+            max-width: 148px
+            width: 148px
+    .review-control
+        cursor: pointer
+        display: flex
+        align-items: center
+        position: relative
+        &::after
+            content: ''
+            width: 24px
+            height: 24px
+            border: 1px solid $after-color-2
+            display: block
+            border-radius: 5px
+            margin-left: 8px
+        &::before
+            content: ''
+            border: 5px solid transparent
+            border-top: 5px solid $secondary-text
+            position: absolute
+            right: 8px
+            top: 11px
+
+    &--mode-0
+        .heading-row
+            .buttons
+                &__button
+                    &:nth-child(1)
+                        background-color: $button-color
+                        color: #fff
+                        border-color: $button-color !important
+
+    &--mode-1
+        .heading-row
+            .buttons
+                &__button
+                    &:nth-child(2)
+                        background-color: $button-color
+                        color: #fff
+                        border-color: $button-color !important
+
+    &--mode-2
+        .heading-row
+            .buttons
+                &__button
+                    &:nth-child(3)
+                        background-color: $button-color
+                        color: #fff
+                        border-color: $button-color !important
+
+    &--mode-3
+        .heading-row
+            .buttons
+                &__button
+                    &:nth-child(4)
+                        background-color: $button-color
+                        color: #fff
+                        border-color: $button-color !important
+
+    .heading-row
+        display: flex
+        flex-direction: column
+        height: auto
+        margin-bottom: 20px
+        &__title
+        .buttons
+            margin-top: 20px
+            justify-content: flex-start
+            &__button
+                margin: 0
+                height: 36px
+                box-shadow: none
+                background-color: #fff
+                color: $primary-text
+                &:not(:first-child):not(:nth-last-child(2))
+                    border-radius: 0
+                &:not(:nth-last-child(2))
+                    border-right: none !important
+                &:first-child
+                    border-radius: 5px 0 0 5px
+                &:nth-last-child(2)
+                    border-radius: 0 5px 5px 0
+                &:not(.buttons__button--active)
+                    border: 1px solid $after-color-2
+        .custom-search-field
+            margin-left: 30px
+    .rectangle-block
+        display: flex
+        justify-content: space-between
+        padding-bottom: 30px
+        margin-bottom: 30px
+        &.form
+            &--blogger
+                .only-commerce
+                    display: none
+            &--commerce
+                .only-blogger
+                    display: none
+        &.message
+            width: 53%
+            height: 36px
+            font-size: 14px
+            padding: 8px 13px
+            align-items: center
+            justify-content: flex-start
+            border-radius: 5px
+            margin-bottom: 20px
+            .gray-text
+                margin-left: 20px
+                cursor: pointer
+        &.empty
+            height: 100px
+            align-items: center
+            justify-content: center
+            padding: 41px
+            span
+                font-size: 14px
+        .left-part, .right-part
+            display: flex
+            width: calc(50% - 10px)
+            .column
+                .row
+                    .inner-row
+                        display: flex
+                        .boxes
+                            margin-left: 10px
+                        &--blogger
+                            .input[type=number]
+                                width: 49.6%
+                        &--commerce
+                            .input[type=number]
+                                width: 40%
+                    width: 100%
+                    &:not(:last-child)
+                        margin-bottom: 14px
+                    &__title
+                        font-size: 12px
+                        margin-bottom: 4px
+                        color: $secondary-text
+                    &__input
+                        width: 100%
+                    .content-row
+                        display: flex
+                        .button
+                            width: 50%
+                            background-color: #fff
+                            box-shadow: none
+                            color: $primary-text
+                            &:not(.button--active)
+                                border: 1px solid $after-color-2
+                            &--active
+                                background-color: $button-color
+                                color: white
+                            &:first-child
+                                border-radius: 5px 0 0 5px
+                                border-right: none
+                            &:last-child
+                                border-radius: 0 5px 5px 0
+                &:nth-child(2)
+                    &:last-child
+                        .buttons
+                            &__button
+                                width: 32px
+                                height: 32px
+        .left-part
+            justify-content: space-between
+            .column
+                display: flex
+                flex-direction: column
+                width: 48.1%
+        .right-part
+            .column
+                width: 100%
+                .row
+                    &__input
+                        height: 260px
+                    &:last-child
+                        display: flex
+                        align-items: center
+                        justify-content: space-between
+                        width: 100%
+                        .left-part
+                            width: auto
+                            &__button
+                                &:nth-child(1)
+                                    width: 113px
+                                &:nth-child(2)
+                                    width: 117px
+                                &:nth-child(3)
+                                    width: 148px
+                        .right-part
+                            width: auto
+
+.approved, .refused, .banned
+    .rectangle-block--general
+        flex-direction: column
+        padding: 0 !important
+    .review
+        padding: 0
+        margin: 0
+        &:not(.review--minimized)
+            .when-closed
+                display: none
+        &--minimized
+            .when-opened
+                display: none
+            &:not(:last-child)
+                .upper-part
+                    border-bottom: 1px solid $after-color-2
+            .rectangle-block
+                display: none
+        .upper-part
+            width: 100%
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-between
+            align-items: center
+            padding: 20px
+            .left-part
+                display: flex
+                .column
+                    display: flex
+                    flex-direction: column
+                    margin-right: 20px
+                    font-size: 14px
+            .right-part
+                .column
+                    justify-content: flex-end
+                    display: flex
+                    align-items: center
+                    font-size: 14px
+                    .button
+                        margin-left: 15px
+            .reason
+                font-size: 14px
+                margin-top: 10px
+        &:not(:last-child)
+            .rectangle-block
+                border-radius: 0
+                border-bottom: 1px solid $after-color-2
+        &:last-child
+            .rectangle-block
+                border-top-right-radius: 0
+                border-top-left-radius: 0
+        .rectangle-block
+            box-shadow: none
+            margin: 0
+            border-top: 1px solid $after-color-2
+
+.banned
+    .upper-part
+        .left-part
+            width: 35%
+
+
+            
+.section:not(.moderation--sent)
+    .message
+        display: none
+
+@media (min-width: 768px)
+    .moderation
+        &--sent
+            .message
+                display: flex
+
+@media (max-width: 768px)
+    .moderation
+        &--sent
+            .message
+                display: block

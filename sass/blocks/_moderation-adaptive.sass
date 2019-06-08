@@ -1,0 +1,166 @@
+@media (max-width: 768px)
+    .moderation
+        .slider-wrapper
+            width: 95%
+            padding-left: 0
+            padding-right: 0
+            padding-top: 60px !important
+            border-radius: 10px !important
+            .slider
+                margin: auto
+            .slider-close
+                position: absolute
+                right: 10px
+                top: 10px
+                width: 32px
+                height: 32px
+                border-radius: 50%
+                border: 1px solid $after-color-2
+                background-color: transparent
+                outline: none
+                &::after, &::before
+                    content: ''
+                    width: 20px
+                    height: 2px
+                    background-color: $after-color-2
+                    display: block
+                    position: absolute
+                    right: 5px
+                    top: 14px
+                &::after
+                    transform: rotateZ(45deg)
+                &::before
+                    transform: rotateZ(-45deg)
+        .heading-row
+            .buttons
+                .custom-search-field
+                    width: 100%
+                    margin: 0
+        .rectangle-block-wrapper
+            .rectangle-block
+                flex-direction: column
+                padding-bottom: 20px
+                &.message
+                    width: 100%
+                    height: auto
+                    line-height: 24px
+                    padding: 8px 15px
+                .left-part, .right-part
+                    width: 100%
+                    flex-direction: column
+                    .column
+                        width: 100%
+                        .row
+                            .inner-row
+                                flex-direction: column
+                                .input
+                                    width: 100%
+                                .boxes
+                                    display: flex
+                                    flex-direction: row
+                                    margin-top: 10px
+                                    margin-left: 0
+                                    .option
+                                        width: 50%
+                        &:nth-child(2)
+                            margin-top: 13px
+                .right-part
+                    margin-top: 13px
+                    .column
+                        .row
+                            align-items: flex-end
+                            .left-part
+                                flex-direction: row
+                                flex-wrap: wrap
+                                .button-select
+                                    margin-left: 0
+                                    &:last-child
+                                        margin-top: 15px
+                                &__button
+                                    &:not(:last-child)
+                                        margin: 0
+                                    &:last-child
+                                        margin-top: 15px
+        .banned
+            .review
+                .form
+                    .right-part
+                        .column
+                            .row
+                                &:last-child
+                                    justify-content: space-between !important
+                                    align-items: center
+        .refused
+            .review
+                .upper-part
+                    .right-part
+                        .column
+                            .button
+                                margin-bottom: 14px
+                .form
+                    .right-part
+                        .column
+                            .row
+                                &:last-child
+                                    .left-part__button
+                                        margin-right: 15px
+        .banned
+            .rectangle-block
+                &--general
+                    .upper-part
+                        .right-part
+                            .column
+                                .button
+                                    margin-bottom: 14px
+        .approved, .refused, .banned
+            .review
+                .upper-part
+                    align-items: flex-start
+                    padding: 20px 15px
+                    flex-direction: row
+                    .left-part, .right-part
+                        width: 50%
+                        margin: 0
+                        height: 100%
+                        justify-content: space-between
+                        .column
+                            flex-direction: column
+                            margin: 0
+                            .button-select
+                                margin-bottom: 14px                            
+                            .link
+                                order: 3
+                    .left-part
+                        .column:not(:last-child)
+                            margin-bottom: 12px
+                    .right-part
+                        .column
+                            align-items: flex-end
+                    .reason
+                        font-size: 12px
+                        .gray-text
+                            color: $primary-text
+                .rectangle-block
+                    border-top: none
+                    padding-top: 0
+                    .right-part
+                        .column
+                            .row
+                                &:first-child
+                                    align-items: flex-start
+                                    flex-direction: column
+                                &:last-child
+                                    justify-content: flex-start
+                                    .button-select
+                                        margin-top: 0
+                                        margin-right: 15px
+                                        margin-left: 0
+                    .closing
+                        border-top: 1px solid $after-color-2
+                        width: calc(100% + 30px)
+                        margin-left: -15px
+                        margin-top: 20px
+                        padding-top: 19px
+                        font-size: 14px
+                        justify-content: center
+                        align-items: center
