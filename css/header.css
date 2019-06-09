@@ -1576,7 +1576,6 @@ strong {
         -ms-flex-pack: justify;
             justify-content: space-between;
     width: 100%;
-    overflow-x: scroll;
     padding: 10px;
     left: 0;
     position: fixed;

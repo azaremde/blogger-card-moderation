@@ -162,14 +162,14 @@ DropdownControl = () => {
 
                     let temp = document.createElement('span');
                     temp.classList.add('dropdown__added');
-                    temp.append($(_el).text());    
+                    temp.append($(_el).find('.option__title').get(0).innerHTML);
                     $(el).append(temp);
 
                 } else {
                     dropdownOptionsChosen[i] -= 1;
 
                     $.map($(el).find('.dropdown__added'), (__el) => {
-                        if($(__el).text() == $(_el).text()) {
+                        if($(__el).get(0).innerHTML == $(_el).find('.option__title').get(0).innerHTML) {
                             $(__el).remove();
                         }
                     });
@@ -180,6 +180,8 @@ DropdownControl = () => {
                 } else {
                     $(el).find('.dropdown__text').html(defaultDropdownText);
                 }
+
+                $(el).parent().toggleClass('dropdown--open');
     
             });
 
