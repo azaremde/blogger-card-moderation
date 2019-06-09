@@ -3,7 +3,7 @@ var mobile = parseInt($(window).width()) < 768;
 
 HeaderLoad = () => {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'header.html', true);
+    xhr.open('GET', 'https://azaremde.github.io/blogger-card-header/header', true);
     xhr.onreadystatechange= function() {
         if (this.readyState !== 4) {
             return;

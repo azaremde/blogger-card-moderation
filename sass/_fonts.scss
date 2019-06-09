@@ -77,3 +77,14 @@
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
   }
+  
+@font-face {
+  font-family: 'fontello';
+  //src: //url('../fonts/fontello.eot?7031621');
+  src: //url('../fonts/fontello.eot?7031621#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff?7031621') format('woff');
+       //url('../fonts/fontello.ttf?7031621') format('truetype'),
+       //url('../fonts/fontello.svg?7031621#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
