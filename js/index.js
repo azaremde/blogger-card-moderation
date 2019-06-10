@@ -88,7 +88,7 @@ SelectDropdownReturning = () => {
 
             // console.log(currentlySelectedOption);
 
-            $(el).val('default');
+            // $(el).val('default');
         });
     });
 }

@@ -55,6 +55,9 @@
         margin-left: 15px
         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15)
         border-radius: 5px
+        .select
+            overflow: hidden
+            padding-right: 25px
         &--refuse
             max-width: 117px
         &--ban
@@ -320,6 +323,30 @@
 
 @media (min-width: 768px)
     .moderation
+        .darkness-wrapper
+            position: fixed
+            width: 100vw
+            height: 100vh
+            top: 0
+            left: 0
+            z-index: 999999
+            background-color: rgba(0, 0, 0, 0.2)
+            display: none
+        .slider-wrapper
+            position: absolute
+            top: 15%
+            left: 50%
+            padding: 30px 80px 52px
+            z-index: 1
+            transform: translateX(-50%)
+            .slider
+                width: 300px
+                .slide
+                    &__image
+                        width: 100%
+                    &__title
+                        text-align: center
+                        margin-top: 10px
         &--sent
             .message
                 display: flex

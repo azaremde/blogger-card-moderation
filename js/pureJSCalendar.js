@@ -1,4 +1,6 @@
 //private calendar controller IIFE
+var mobile = parseInt($(window).width()) < 768;
+
 var pureJSCalendar = (function () {
     let wrap, label, calYear, calMonth, calDateFormat, firstDay, isIE11, opened, openedInput;
 
@@ -53,6 +55,47 @@ var pureJSCalendar = (function () {
 
     let calendarsExist = document.getElementsByClassName('open-calendar').length;
     let chosenDate = Array(calendarsExist);
+    
+
+    $(document).ready(() => {
+        $.map($('input'), (el) => {
+            $(el).on('click', () => {
+                if(!$(el).hasClass('open-calendar')) {
+                    close();
+                }
+            });
+        });
+
+        $.map($('select'), (el) => {
+            $(el).on('click', () => {
+                close();
+            });
+        });
+
+        $.map($('.dropdown'), (el) => {
+            $(el).on('click', () => {
+                close();
+            });
+        });
+
+        $.map($('.option'), (el) => {
+            $(el).on('click', () => {
+                close();
+            });
+        });
+
+        $.map($('.custom-text-area'), (el) => {
+            $(el).on('click', () => {
+                close();
+            });
+        });
+
+        $.map($('button'), (el) => {
+            $(el).on('click', () => {
+                close();
+            });
+        });
+    });
 
     //open function
     function open(dateFormat, x, y, firstDayOfWeek, minDate, maxDate, element, zindex, el) {

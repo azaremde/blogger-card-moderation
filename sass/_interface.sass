@@ -32,21 +32,7 @@ body
     height: 100vh
     overflow: hidden
     position: fixed
-    &::before, &::after
-        content: ''
-        position: absolute
-        display: block
-        width: 4px
-        height: 30px
-        background-color: #FEFEFD
-        z-index: 99999999
-        right: 11%
-        top: 6%
-        pointer-events: none
-    &::before
-        transform: rotateZ(45deg)
-    &::after
-        transform: rotateZ(-45deg)
+    
 .global-info
     width: 100%
     box-shadow: 0px 3px 10px rgba(0, 73, 129, 0.1)
