@@ -116,7 +116,9 @@ SlickSlider = () => {
                 $(sliderParents)[i].slick.slickGoTo(j);
                 $(sliderParents)[i].slick.refresh();
                 scr = $('html').scrollTop();
-                $('body').addClass('scroll-disabled');    
+                if(mobile) {
+                    $('body').addClass('scroll-disabled');    
+                }
                 $('html').scrollTop(scr);
                 //stopBodyScrolling(true);
 
@@ -132,7 +134,7 @@ SlickSlider = () => {
             $(el).parent().parent().fadeOut(300);
             $('body').removeClass('scroll-disabled');       
             //stopBodyScrolling(false); 
-                $('html').scrollTop(scr);
+            $('html').scrollTop(scr);
         });
 
     });
