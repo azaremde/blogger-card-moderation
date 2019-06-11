@@ -113,6 +113,7 @@ SlickSlider = () => {
                 $(sliders[i]).fadeIn(300);
                 $(sliderParents)[i].slick.slickGoTo(j);
                 $(sliderParents)[i].slick.refresh();
+                $('body').addClass('scroll-disabled');                
 
             });
 
@@ -124,6 +125,7 @@ SlickSlider = () => {
 
         $(el).on('click', () => {
             $(el).parent().parent().fadeOut(300);
+            $('body').removeClass('scroll-disabled');        
         });
 
     });
@@ -136,6 +138,7 @@ SlickSlider = () => {
             event.clientY < $(slidersWrappers[i]).offset().top + $(slidersWrappers[i]).outerHeight()) {
             } else {
                 $(el).fadeOut(300);
+                $('body').removeClass('scroll-disabled');   
             }
         });
     });
