@@ -114,6 +114,7 @@ SlickSlider = () => {
                 $(sliderParents)[i].slick.slickGoTo(j);
                 $(sliderParents)[i].slick.refresh();
                 $('body, html').addClass('scroll-disabled');     
+                stopBodyScrolling(true);
 
             });
 
@@ -125,7 +126,8 @@ SlickSlider = () => {
 
         $(el).on('click', () => {
             $(el).parent().parent().fadeOut(300);
-            $('body, html').removeClass('scroll-disabled');        
+            $('body, html').removeClass('scroll-disabled');       
+            stopBodyScrolling(false); 
         });
 
     });
@@ -139,6 +141,7 @@ SlickSlider = () => {
             } else {
                 $(el).fadeOut(300);
                 $('body, html').removeClass('scroll-disabled');   
+                stopBodyScrolling(false);
             }
         });
     });
@@ -229,3 +232,15 @@ $(document).ready(() => {
     DropdownControl();
     OtherControls();
 });
+
+function stopBodyScrolling (bool) {
+    if (bool === true) {
+        document.body.addEventListener("touchmove", freezeVp, false);
+    } else {
+        document.body.removeEventListener("touchmove", freezeVp, false);
+    }
+}
+
+var freezeVp = function(e) {
+    e.preventDefault();
+};
