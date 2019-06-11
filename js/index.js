@@ -115,12 +115,18 @@ SlickSlider = () => {
                 $(sliders[i]).fadeIn(300);
                 $(sliderParents)[i].slick.slickGoTo(j);
                 $(sliderParents)[i].slick.refresh();
-                scr = $('html').scrollTop();
+                //scr = $('html').scrollTop();
                 if(mobile) {
-                    $('body').css({
-                        top : -$('html').scrollTop() + 'px'
-                    });
-                    $('body').addClass('scroll-disabled');   
+                    //$('body').css({
+                    //    top : -$('html').scrollTop() + 'px'
+                    //});
+                    document.getElementsByTagName('body').ontouchstart = (e) => {
+                        e.preventDefault();
+                    };
+
+
+
+                    //$('body').addClass('scroll-disabled');   
                 }
             });
 
@@ -132,8 +138,11 @@ SlickSlider = () => {
 
         $(el).on('click', () => {
             $(el).parent().parent().fadeOut(300);
-            $('body').removeClass('scroll-disabled');
-            $('html').scrollTop(scr);
+            //$('body').removeClass('scroll-disabled');
+            //$('html').scrollTop(scr);
+            document.getElementsByTagName('body').ontouchstart = (e) => {
+                return true;
+            };
         });
 
     });
@@ -146,8 +155,11 @@ SlickSlider = () => {
             event.clientY < $(slidersWrappers[i]).offset().top + $(slidersWrappers[i]).outerHeight()) {
             } else {
                 $(el).fadeOut(300);
-                $('body').removeClass('scroll-disabled');
-                $('html').scrollTop(scr);
+                //$('body').removeClass('scroll-disabled');
+                //$('html').scrollTop(scr);
+                document.getElementsByTagName('body').ontouchstart = (e) => {
+                    return true;
+                };
             }
         });
     });
@@ -268,15 +280,3 @@ $(document).ready(() => {
     OtherControls();
     Viewer();
 });
-
-function stopBodyScrolling (bool) {
-    if (bool === true) {
-        document.body.addEventListener("touchmove", freezeVp, false);
-    } else {
-        document.body.removeEventListener("touchmove", freezeVp, false);
-    }
-}
-
-var freezeVp = function(e) {
-    e.preventDefault();
-};
