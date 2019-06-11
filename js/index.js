@@ -229,6 +229,21 @@ OtherControls = () => {
     });
 }
 
+Viewer = () => {
+    let images = $('.slide__image');
+
+    $.map(images, (el) => {
+        $(el).on('click', () => {
+            $('#fullscreen').addClass('fullscreen--visible');
+            $('#fullscreen img').attr('src', $(el).attr('src'));
+        });
+    });
+
+    $('#fullscreen').on('click', () => {
+        $('#fullscreen').removeClass('fullscreen--visible');
+    });
+}
+
 $(document).ready(() => {
     HeaderLoad();
     ModeSwitching();
@@ -239,6 +254,7 @@ $(document).ready(() => {
     OptionsControl();
     DropdownControl();
     OtherControls();
+    Viewer();
 });
 
 function stopBodyScrolling (bool) {
