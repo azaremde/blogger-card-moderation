@@ -492,9 +492,9 @@ body {
 }
 
 .scroll-disabled {
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
+  -ms-touch-action: none;
+      touch-action: none;
 }
 
 .global-info {
