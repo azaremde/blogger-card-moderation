@@ -104,6 +104,8 @@ SlickSlider = () => {
     let sliderParents = $('.slider');
     let mobileBtns = $('.slider-close');
 
+    let scr = 0;
+
     $.map(btns, (el, i) => {
 
         $.map($(el).find('.button'), (_el, j) => {
@@ -113,8 +115,10 @@ SlickSlider = () => {
                 $(sliders[i]).fadeIn(300);
                 $(sliderParents)[i].slick.slickGoTo(j);
                 $(sliderParents)[i].slick.refresh();
-                $('body, html').addClass('scroll-disabled');     
-                stopBodyScrolling(true);
+                scr = $('html').scrollTop();
+                $('body').addClass('scroll-disabled');    
+                $('html').scrollTop(scr);
+                //stopBodyScrolling(true);
 
             });
 
@@ -126,8 +130,9 @@ SlickSlider = () => {
 
         $(el).on('click', () => {
             $(el).parent().parent().fadeOut(300);
-            $('body, html').removeClass('scroll-disabled');       
-            stopBodyScrolling(false); 
+            $('body').removeClass('scroll-disabled');       
+            //stopBodyScrolling(false); 
+                $('html').scrollTop(scr);
         });
 
     });
@@ -140,8 +145,9 @@ SlickSlider = () => {
             event.clientY < $(slidersWrappers[i]).offset().top + $(slidersWrappers[i]).outerHeight()) {
             } else {
                 $(el).fadeOut(300);
-                $('body, html').removeClass('scroll-disabled');   
-                stopBodyScrolling(false);
+                $('body').removeClass('scroll-disabled');   
+                //stopBodyScrolling(false);
+                $('html').scrollTop(scr);
             }
         });
     });
