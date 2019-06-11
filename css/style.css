@@ -496,6 +496,7 @@ body {
   -ms-touch-action: none;
       touch-action: none;
   position: fixed;
+  width: 100%;
 }
 
 .global-info {

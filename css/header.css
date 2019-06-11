@@ -5,7 +5,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
- html {
+html {
   line-height: 1.15;
   /* 1 */
   -webkit-text-size-adjust: 100%;
@@ -413,6 +413,45 @@ template {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: 'fontello';
+  src: url("../fonts/fontello.woff?7031621") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.woff?saqt49") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-search {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  color: #6A7B83;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+  content: "\e986";
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translateX(50%) translateY(-50%);
+          transform: translateX(50%) translateY(-50%);
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -450,6 +489,14 @@ body {
 
 .main {
   margin-top: 105px;
+}
+
+.scroll-disabled {
+  overflow: hidden;
+  -ms-touch-action: none;
+      touch-action: none;
+  position: fixed;
+  width: 100%;
 }
 
 .global-info {
@@ -1180,6 +1227,27 @@ strong {
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
   font-weight: 500;
+}
+
+.custom-star {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  color: #FBC400;
+  font-size: 16px;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  vertical-align: middle;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.open-calendar {
+  padding-top: 7px;
 }
 
 @media (max-width: 1352px) {
