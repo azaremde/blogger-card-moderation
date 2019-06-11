@@ -3,7 +3,7 @@ var mobile = parseInt($(window).width()) < 768;
 
 HeaderLoad = () => {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://azaremde.github.io/blogger-card-header/header', true);
+    xhr.open('GET', 'header.html', true);
     xhr.onreadystatechange= function() {
         if (this.readyState !== 4) {
             return;
@@ -117,11 +117,11 @@ SlickSlider = () => {
                 $(sliderParents)[i].slick.refresh();
                 scr = $('html').scrollTop();
                 if(mobile) {
-                    $('body').addClass('scroll-disabled');    
+                    $('body').css({
+                        top : -$('html').scrollTop() + 'px'
+                    });
+                    $('body').addClass('scroll-disabled');   
                 }
-                $('html').scrollTop(scr);
-                //stopBodyScrolling(true);
-
             });
 
         });
@@ -132,8 +132,7 @@ SlickSlider = () => {
 
         $(el).on('click', () => {
             $(el).parent().parent().fadeOut(300);
-            $('body').removeClass('scroll-disabled');       
-            //stopBodyScrolling(false); 
+            $('body').removeClass('scroll-disabled');
             $('html').scrollTop(scr);
         });
 
@@ -147,8 +146,7 @@ SlickSlider = () => {
             event.clientY < $(slidersWrappers[i]).offset().top + $(slidersWrappers[i]).outerHeight()) {
             } else {
                 $(el).fadeOut(300);
-                $('body').removeClass('scroll-disabled');   
-                //stopBodyScrolling(false);
+                $('body').removeClass('scroll-disabled');
                 $('html').scrollTop(scr);
             }
         });
@@ -211,6 +209,20 @@ OptionsControl = () => {
 
         $(el).on('click', () => {
             $(el).toggleClass('option--active');
+        });
+
+    });
+
+    let boxes = $('.boxes');
+
+    $.map(boxes, (el) => {
+        
+        $($(el).find('.option')[0]).on('click', () => {
+            $($(el).find('.option')[1]).removeClass('option--active');
+        });
+        
+        $($(el).find('.option')[1]).on('click', () => {
+            $($(el).find('.option')[0]).removeClass('option--active');
         });
 
     });
