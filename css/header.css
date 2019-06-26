@@ -1607,9 +1607,9 @@ strong {
     margin: 7px auto;
   }
   .header .container .mobile-nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
